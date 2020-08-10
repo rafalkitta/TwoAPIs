@@ -18,13 +18,23 @@ class ItemCollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var sourceLabel: UILabel!
     @IBOutlet private weak var footerOverlay: GradientView! {
         didSet {
-            let gradientColors = [UIColor.black.withAlphaComponent(0.5),
+            let gradientColors = [UIColor.black.withAlphaComponent(0.7),
                                   UIColor.black.withAlphaComponent(0.3),
                                   UIColor.black.withAlphaComponent(0.0)]
             footerOverlay.setColors(gradientColors, at: [0.0, 0.7, 1.0])
         }
     }
-    @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet private weak var activityIndicator: UIActivityIndicatorView! {
+        didSet {
+            activityIndicator.hidesWhenStopped = true
+        }
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        avatarImageView.image = nil
+        avatarImageView.alpha = 0.0
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -36,6 +46,12 @@ class ItemCollectionViewCell: UICollectionViewCell {
         userNameLabel.text = item.userName
         sourceLabel.text = item.sourceName
         activityIndicator.startAnimating()
-        // TODO: - loading image
+        avatarImageView.loadImage(from: item.avatarURL) { success in
+            guard success else { return }
+            self.activityIndicator.stopAnimating()
+            UIView.animate(withDuration: 0.3) {
+                self.avatarImageView.alpha = 1.0
+            }
+        }
     }
 }
