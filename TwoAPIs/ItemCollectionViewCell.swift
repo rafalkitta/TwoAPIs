@@ -30,6 +30,12 @@ class ItemCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         layer.cornerRadius = 8.0
         backgroundColor = UIColor.black.withAlphaComponent(0.5)
+    }
+    
+    func configure(with item: APIItem) {
+        userNameLabel.text = item.userName
+        sourceLabel.text = item.sourceName
         activityIndicator.startAnimating()
+        // TODO: - loading image
     }
 }

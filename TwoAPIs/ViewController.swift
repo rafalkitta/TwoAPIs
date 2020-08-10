@@ -17,6 +17,15 @@ class ItemsViewController: UIViewController {
     }
     @IBOutlet weak var collectionViewFlowLayout: UICollectionViewFlowLayout!
     
+    let usersProvider = UsersProvider()
+    var items = [APIItem]()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        usersProvider.delegate = self
+        usersProvider.loadData()
+    }
+    
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         updateItemSize()
@@ -42,11 +51,27 @@ class ItemsViewController: UIViewController {
 // MARK: - UICollectionViewDataSource
 extension ItemsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return items.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ItemCell", for: indexPath)
+        (cell as? ItemCollectionViewCell)?.configure(with: items[indexPath.item])
         return cell
+    }
+}
+
+// MARK: - UsersProviderDelegate
+extension ItemsViewController: UsersProviderDelegate {
+    func usersProvider(_ usersProvider: UsersProvider, didLoad users: [APIItem]) {
+        items = users.shuffled()
+        collectionView.reloadData()
+    }
+    
+    func usersProviderDidFailLoadingUser(_ usersProvider: UsersProvider) {
+        items.removeAll()
+        collectionView.reloadData()
+        let alert = UIAlertController(title: "Loading data error", message: "Couldn't load data", preferredStyle: .alert)
+        present(alert, animated: true)
     }
 }
