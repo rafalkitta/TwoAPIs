@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct GitHubUsersService: APIService {
+class GitHubUsersService: APIService {
     typealias ItemType = GitHubUser
     let url: URL
     

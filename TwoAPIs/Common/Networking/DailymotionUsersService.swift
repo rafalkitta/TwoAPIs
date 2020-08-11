@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct DailymotionUsersService: APIService {
+class DailymotionUsersService: APIService {
     typealias ItemType = DailymotionUsers.DailymotionUser
     let url: URL
 
