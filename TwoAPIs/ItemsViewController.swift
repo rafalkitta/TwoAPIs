@@ -37,7 +37,7 @@ class ItemsViewController: UIViewController {
     }
     
     private func updateItemSize() {
-        let cellsPerRow = 2
+        let cellsPerRow = floor(view.bounds.width / 200)
         let safeAreaInsets: UIEdgeInsets
         if #available(iOS 11.0, *) {
             safeAreaInsets = view.safeAreaInsets
