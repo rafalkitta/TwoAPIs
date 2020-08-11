@@ -120,7 +120,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="IgP-7y-fAm"/>
                     </view>
-                    <navigationItem key="navigationItem" id="K9x-9H-4Iy"/>
+                    <navigationItem key="navigationItem" id="K9x-9H-4Iy">
+                        <barButtonItem key="backBarButtonItem" title=" " id="ix0-Lm-O8z"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="TCC-01-Qqu" id="bsG-tr-Bv0"/>
                         <outlet property="collectionViewFlowLayout" destination="hyc-gd-sLC" id="jT4-Q9-xSA"/>

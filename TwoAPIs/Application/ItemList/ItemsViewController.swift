@@ -29,6 +29,7 @@ class ItemsViewController: UIViewController {
         super.viewDidLoad()
         usersProvider.delegate = self
         usersProvider.loadData()
+        setupRefreshCotrol()
     }
     
     override func viewWillLayoutSubviews() {
@@ -52,6 +53,19 @@ class ItemsViewController: UIViewController {
         collectionViewFlowLayout.itemSize =  CGSize(width: itemWidth, height: itemWidth)
     }
     
+    private func setupRefreshCotrol() {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        collectionView.refreshControl = refreshControl
+    }
+    
+    @objc private func refresh() {
+        usersProvider.loadData()
+    }
+}
+
+// MARK: - Navigation
+extension ItemsViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         if segue.identifier == Const.shwoDetailsSegueIdentifier,
@@ -88,6 +102,7 @@ extension ItemsViewController: UsersProviderDelegate {
     func usersProvider(_ usersProvider: UsersProvider, didLoad users: [APIItem]) {
         items = users.shuffled()
         collectionView.reloadData()
+        collectionView.refreshControl?.endRefreshing()
     }
     
     func usersProviderDidFailLoadingUser(_ usersProvider: UsersProvider) {
