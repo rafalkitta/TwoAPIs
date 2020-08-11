@@ -9,16 +9,21 @@
 import UIKit
 
 class ItemsViewController: UIViewController {
+    private struct Const {
+        static let shwoDetailsSegueIdentifier = "showDetails"
+    }
     
     @IBOutlet weak var collectionView: UICollectionView! {
         didSet {
             collectionView.dataSource = self
+            collectionView.delegate = self
         }
     }
     @IBOutlet weak var collectionViewFlowLayout: UICollectionViewFlowLayout!
     
     let usersProvider = UsersProvider()
     var items = [APIItem]()
+    var selectedItem: APIItem?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +51,15 @@ class ItemsViewController: UIViewController {
         let itemWidth = ((view.bounds.size.width - marginsAndInsets) / CGFloat(cellsPerRow)).rounded(.down)
         collectionViewFlowLayout.itemSize =  CGSize(width: itemWidth, height: itemWidth)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        if segue.identifier == Const.shwoDetailsSegueIdentifier,
+            let destinationVC = segue.destination as? ItemDetailsViewController,
+            let selectedItem = self.selectedItem {
+            destinationVC.configure(with: selectedItem)
+        }
+    }
 }
 
 // MARK: - UICollectionViewDataSource
@@ -58,6 +72,14 @@ extension ItemsViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ItemCell", for: indexPath)
         (cell as? ItemCollectionViewCell)?.configure(with: items[indexPath.item])
         return cell
+    }
+}
+
+// MARK: - UICollectionViewDelegate
+extension ItemsViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.selectedItem = items[indexPath.item]
+        performSegue(withIdentifier: Const.shwoDetailsSegueIdentifier, sender: self)
     }
 }
 
