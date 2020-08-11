@@ -86,9 +86,9 @@
 		28BDE8C824E21ED800F2FB53 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				28BDE8CB24E21F1900F2FB53 /* Launch */,
 				28BDE8CC24E21F3E00F2FB53 /* ItemList */,
 				28BDE8CD24E21F5300F2FB53 /* ItemDetails */,
-				28BDE8CB24E21F1900F2FB53 /* Launch */,
 				28758FAD24DF5C9F00D11F1C /* AppDelegate.swift */,
 				28758FB324DF5C9F00D11F1C /* Main.storyboard */,
 				28758FBB24DF5CA200D11F1C /* Info.plist */,
