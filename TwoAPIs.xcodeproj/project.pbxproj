@@ -76,25 +76,105 @@
 		28758FAC24DF5C9F00D11F1C /* TwoAPIs */ = {
 			isa = PBXGroup;
 			children = (
+				28BDE8C824E21ED800F2FB53 /* Application */,
+				28BDE8C924E21EF200F2FB53 /* Common */,
+				28BDE8CA24E21EFA00F2FB53 /* Resources */,
+			);
+			path = TwoAPIs;
+			sourceTree = "<group>";
+		};
+		28BDE8C824E21ED800F2FB53 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				28BDE8CC24E21F3E00F2FB53 /* ItemList */,
+				28BDE8CD24E21F5300F2FB53 /* ItemDetails */,
+				28BDE8CB24E21F1900F2FB53 /* Launch */,
 				28758FAD24DF5C9F00D11F1C /* AppDelegate.swift */,
-				28758FB124DF5C9F00D11F1C /* ItemsViewController.swift */,
 				28758FB324DF5C9F00D11F1C /* Main.storyboard */,
-				28758FB624DF5CA200D11F1C /* Assets.xcassets */,
-				28758FB824DF5CA200D11F1C /* LaunchScreen.storyboard */,
 				28758FBB24DF5CA200D11F1C /* Info.plist */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		28BDE8C924E21EF200F2FB53 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				28BDE8D024E21FB000F2FB53 /* Networking */,
+				28BDE8CF24E21F9F00F2FB53 /* Views */,
+				28BDE8CE24E21F8600F2FB53 /* Models */,
+				28BDE8D124E2200400F2FB53 /* Helpers */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		28BDE8CA24E21EFA00F2FB53 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				28758FB624DF5CA200D11F1C /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		28BDE8CB24E21F1900F2FB53 /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				28758FB824DF5CA200D11F1C /* LaunchScreen.storyboard */,
+			);
+			path = Launch;
+			sourceTree = "<group>";
+		};
+		28BDE8CC24E21F3E00F2FB53 /* ItemList */ = {
+			isa = PBXGroup;
+			children = (
+				28758FB124DF5C9F00D11F1C /* ItemsViewController.swift */,
 				28EF9CE724E0944D001123D7 /* ItemCollectionViewCell.swift */,
-				28EF9CF924E0D173001123D7 /* UIImageView+LoadingImage.swift */,
-				28EF9CE924E0A05F001123D7 /* GradientView.swift */,
+				28EF9CF724E0CD17001123D7 /* UsersProvider.swift */,
+			);
+			path = ItemList;
+			sourceTree = "<group>";
+		};
+		28BDE8CD24E21F5300F2FB53 /* ItemDetails */ = {
+			isa = PBXGroup;
+			children = (
+				28CF361324E20F18001DD146 /* ItemDetailsViewController.swift */,
+			);
+			path = ItemDetails;
+			sourceTree = "<group>";
+		};
+		28BDE8CE24E21F8600F2FB53 /* Models */ = {
+			isa = PBXGroup;
+			children = (
 				28EF9CEB24E0CC84001123D7 /* APIItem.swift */,
 				28EF9CED24E0CC98001123D7 /* GitHubUser.swift */,
 				28EF9CEF24E0CCB0001123D7 /* DailymotionUsers.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		28BDE8CF24E21F9F00F2FB53 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				28EF9CE924E0A05F001123D7 /* GradientView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		28BDE8D024E21FB000F2FB53 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
 				28EF9CF124E0CCCA001123D7 /* APIService.swift */,
 				28EF9CF324E0CCE4001123D7 /* GitHubUsersService.swift */,
 				28EF9CF524E0CD02001123D7 /* DailymotionUsersService.swift */,
-				28EF9CF724E0CD17001123D7 /* UsersProvider.swift */,
-				28CF361324E20F18001DD146 /* ItemDetailsViewController.swift */,
 			);
-			path = TwoAPIs;
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		28BDE8D124E2200400F2FB53 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				28EF9CF924E0D173001123D7 /* UIImageView+LoadingImage.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -326,7 +406,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = TwoAPIs/Info.plist;
+				INFOPLIST_FILE = TwoAPIs/Application/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -345,7 +425,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = TwoAPIs/Info.plist;
+				INFOPLIST_FILE = TwoAPIs/Application/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
