@@ -10,7 +10,7 @@ import Foundation
 
 class DailymotionUsersService: APIService {
     typealias ItemType = DailymotionUsers.DailymotionUser
-    let url: URL
+    private let url: URL
 
     init(url: URL = URL(string: "https://api.dailymotion.com/users?fields=avatar_360_url,username")!) {
         self.url = url

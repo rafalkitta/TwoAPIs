@@ -10,7 +10,7 @@ import Foundation
 
 class GitHubUsersService: APIService {
     typealias ItemType = GitHubUser
-    let url: URL
+    private let url: URL
     
     init(url: URL = URL(string: "https://api.github.com/users")!) {
         self.url = url
