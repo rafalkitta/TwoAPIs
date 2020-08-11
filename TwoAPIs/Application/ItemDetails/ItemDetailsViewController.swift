@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ItemDetailsViewController: UIViewController {
+final class ItemDetailsViewController: UIViewController {
     @IBOutlet private weak var avatarImageView: UIImageView! {
         didSet {
             avatarImageView.alpha = 0.0

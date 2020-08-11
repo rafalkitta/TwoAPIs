@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ItemCollectionViewCell: UICollectionViewCell {
+final class ItemCollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var avatarImageView: UIImageView! {
         didSet {
             avatarImageView.alpha = 0.0

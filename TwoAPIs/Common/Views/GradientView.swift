@@ -8,8 +8,7 @@
 
 import UIKit
 
-class GradientView: UIView {
-
+final class GradientView: UIView {
     override class var layerClass: AnyClass { CAGradientLayer.classForCoder() }
 
     required init?(coder aDecoder: NSCoder) {

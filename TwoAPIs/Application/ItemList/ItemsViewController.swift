@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ItemsViewController: UIViewController {
+final class ItemsViewController: UIViewController {
     private struct Const {
         static let shwoDetailsSegueIdentifier = "showDetails"
     }
@@ -21,9 +21,9 @@ class ItemsViewController: UIViewController {
     }
     @IBOutlet weak var collectionViewFlowLayout: UICollectionViewFlowLayout!
     
-    let usersProvider = UsersProvider()
-    var items = [APIItem]()
-    var selectedItem: APIItem?
+    private let usersProvider = UsersProvider()
+    private var items = [APIItem]()
+    private var selectedItem: APIItem?
     
     override func viewDidLoad() {
         super.viewDidLoad()

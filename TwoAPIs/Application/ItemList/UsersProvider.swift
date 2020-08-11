@@ -19,10 +19,10 @@ class UsersProvider {
         case allFails
     }
     
-    let gitHubUsersService: GitHubUsersService
-    let dailymotionUsersService: DailymotionUsersService
-    var failureStrategy: FailureStrategy = .anyFails
+    private let gitHubUsersService: GitHubUsersService
+    private let dailymotionUsersService: DailymotionUsersService
     
+    var failureStrategy: FailureStrategy = .anyFails
     weak var delegate: UsersProviderDelegate?
     
     init(gitHubUsersService: GitHubUsersService = GitHubUsersService(),
